@@ -2,7 +2,11 @@
   "name": "gulp-starter-template",
   "version": "1.0.0",
   "description": "Gulp starter template",
-  "scripts": {},
+  "scripts": {
+    "dev": "gulp watch",
+    "build:dev": "gulp build",
+    "build:prod": "gulp build --prod"
+  },
   "keywords": [
     "gulp",
     "js",
