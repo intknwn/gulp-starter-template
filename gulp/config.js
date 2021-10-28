@@ -16,7 +16,7 @@ const config = {
     html: DEST_PATH,
     css: `${DEST_PATH}/css`,
     js: `${DEST_PATH}/js`,
-    images: `${DEST_PATH}/iamges`,
+    images: `${DEST_PATH}/images`,
   },
   setEnv() {
     this.isProd = process.argv.includes('--prod');
