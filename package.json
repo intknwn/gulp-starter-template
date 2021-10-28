@@ -1,0 +1,14 @@
+{
+  "name": "gulp-starter-template",
+  "version": "1.0.0",
+  "description": "Gulp starter template",
+  "scripts": {},
+  "keywords": [
+    "gulp",
+    "js",
+    "sass",
+    "pug"
+  ],
+  "author": "intknwn",
+  "license": "WTFPL"
+}
