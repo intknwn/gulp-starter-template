@@ -9,7 +9,7 @@ const server = (done) => {
     files: [
       `${config.dest.html}/*.html`,
       `${config.dest.css}/*.css`,
-      `${config.dest.js}/*.js`,
+      `${config.dest.scripts}/*.js`,
       {
         match: `${config.dest.images}/**/*`,
         fn() {

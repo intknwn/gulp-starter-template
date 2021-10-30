@@ -5,7 +5,7 @@ const config = {
   src: {
     root: SRC_PATH,
     sass: `${SRC_PATH}/scss`,
-    js: `${SRC_PATH}/js`,
+    scripts: `${SRC_PATH}/scripts`,
     pug: `${SRC_PATH}/pug`,
     fonts: `${SRC_PATH}/assets/fonts`,
     images: `${SRC_PATH}/assets/images`,
@@ -15,7 +15,7 @@ const config = {
     root: DEST_PATH,
     html: DEST_PATH,
     css: `${DEST_PATH}/css`,
-    js: `${DEST_PATH}/js`,
+    scripts: `${DEST_PATH}/scripts`,
     images: `${DEST_PATH}/images`,
   },
   setEnv() {
