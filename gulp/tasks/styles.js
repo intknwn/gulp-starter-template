@@ -19,7 +19,7 @@ export const sassBuild = (done) => {
     .pipe(sassGlob())
     .pipe(
       sass({
-        includePaths: ['./node_modules'],
+        includePaths: ['./node_modules', './node_modules/bootstrap/scss'],
       }),
     )
     .pipe(gulpif(config.isProd, groupMediaQueries()))
