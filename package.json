@@ -61,5 +61,9 @@
     "stylelint-scss": "^4.1.0",
     "webpack": "^5.61.0",
     "webpack-stream": "^7.0.0"
+  },
+  "dependencies": {
+    "focus-visible": "^5.2.0",
+    "vanilla-lazyload": "^17.5.0"
   }
 }
