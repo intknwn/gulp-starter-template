@@ -1,8 +1,8 @@
 import { series, parallel } from 'gulp';
 import clean from './gulp/tasks/clean';
 import server from './gulp/tasks/server';
-import scripts from './gulp/tasks/scripts';
 import config from './gulp/config';
+import { scriptsBuild, scriptsWatch } from './gulp/tasks/scripts';
 import { pugBuild, pugWatch } from './gulp/tasks/pug';
 import { sassBuild, sassWatch } from './gulp/tasks/styles';
 import { assetsBuild, assetsWatch } from './gulp/tasks/assets';
@@ -14,7 +14,7 @@ config.setEnv();
 export const build = series(
   clean,
   parallel(
-    scripts,
+    scriptsBuild,
     pugBuild,
     sassBuild,
     assetsBuild,
@@ -26,7 +26,14 @@ export const build = series(
 export const watch = series(
   build,
   server,
-  parallel(pugWatch, sassWatch, assetsWatch, imagesWatch, spritesWatch),
+  parallel(
+    scriptsWatch,
+    pugWatch,
+    sassWatch,
+    assetsWatch,
+    imagesWatch,
+    spritesWatch,
+  ),
 );
 
 export const sass = series(sassBuild);
