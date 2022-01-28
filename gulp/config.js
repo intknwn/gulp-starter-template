@@ -16,6 +16,7 @@ const config = {
     html: DEST_PATH,
     css: `${DEST_PATH}/css`,
     scripts: `${DEST_PATH}/scripts`,
+    fonts: `${DEST_PATH}/fonts`,
     images: `${DEST_PATH}/images`,
   },
   setEnv() {
