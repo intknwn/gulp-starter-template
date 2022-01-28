@@ -6,18 +6,16 @@ import browsersync from 'browser-sync';
 import webpackConfig from '../../webpack.config';
 import config from '../config';
 
-const scripts = (done) => {
+const scripts = () => {
   webpackConfig.mode = config.isProd ? 'production' : 'development';
   webpackConfig.devtool = config.isDev ? 'source-map' : false;
 
-  gulp
+  return gulp
     .src(`${config.src.scripts}/main.js`)
     .pipe(plumber())
     .pipe(webpackStream(webpackConfig), webpack)
     .pipe(gulp.dest(config.dest.scripts))
     .on('end', browsersync.reload);
-
-  done();
 };
 
 export default scripts;

@@ -2,7 +2,7 @@ import gulp from 'gulp';
 import svgSprite from 'gulp-svg-sprite';
 import config from '../config';
 
-const spriteMono = (done) => {
+const spriteMono = () =>
   gulp
     .src(`${config.src.iconsMono}/**/*.svg`)
     .pipe(
@@ -31,10 +31,7 @@ const spriteMono = (done) => {
     )
     .pipe(gulp.dest(config.dest.images));
 
-  done();
-};
-
-const spriteMulti = (done) => {
+const spriteMulti = () =>
   gulp
     .src(`${config.src.iconsMulti}/**/*.svg`)
     .pipe(
@@ -68,9 +65,6 @@ const spriteMulti = (done) => {
       }),
     )
     .pipe(gulp.dest(config.dest.images));
-
-  done();
-};
 
 export const spritesBuild = gulp.parallel(spriteMono, spriteMulti);
 

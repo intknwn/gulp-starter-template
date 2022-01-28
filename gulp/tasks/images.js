@@ -7,7 +7,7 @@ import gulpif from 'gulp-if';
 import rename from 'gulp-rename';
 import config from '../config';
 
-const copyImages = (done) => {
+const copyImages = () =>
   gulp
     .src(`${config.src.images}/**/*`)
     .pipe(changed(config.dest.images))
@@ -23,10 +23,7 @@ const copyImages = (done) => {
     )
     .pipe(gulp.dest(config.dest.images));
 
-  done();
-};
-
-const convertImagesToWebp = (done) => {
+const convertImagesToWebp = () =>
   gulp
     .src(`${config.src.images}/**/*.{jpg,png}`)
     .pipe(changed(config.dest.images, { extension: '.webp' }))
@@ -38,17 +35,11 @@ const convertImagesToWebp = (done) => {
     )
     .pipe(gulp.dest(config.dest.images));
 
-  done();
-};
-
 export const imagesBuild = gulp.series(copyImages, convertImagesToWebp);
 
-export const imagesWatch = (done) => {
+export const imagesWatch = () =>
   gulp.watch(
     `${config.src.images}/**/*`,
     { ignoreInitial: false },
     imagesBuild,
   );
-
-  done();
-};

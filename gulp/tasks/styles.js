@@ -12,7 +12,7 @@ import config from '../config';
 
 const sass = gulpSass(dartSass);
 
-export const sassBuild = (done) => {
+export const sassBuild = () =>
   gulp
     .src(`${config.src.sass}/main.scss`, { sourcemaps: config.isDev })
     .pipe(plumber())
@@ -32,11 +32,5 @@ export const sassBuild = (done) => {
     )
     .pipe(gulp.dest(config.dest.css, { sourcemaps: config.isDev }));
 
-  done();
-};
-
-export const sassWatch = (done) => {
+export const sassWatch = () =>
   gulp.watch(`${config.src.sass}/**/*.scss`, sassBuild);
-
-  done();
-};

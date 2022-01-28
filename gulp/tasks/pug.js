@@ -2,6 +2,7 @@ import gulp from 'gulp';
 import pug from 'gulp-pug';
 import gulpif from 'gulp-if';
 import plumber from 'gulp-plumber';
+import pugIncludeGlob from 'pug-include-glob';
 import { setup as emittySetup } from '@zoxon/emitty';
 import config from '../config';
 
@@ -15,7 +16,7 @@ global.emittyChangedFile = {
   stats: null,
 };
 
-export const pugBuild = (done) => {
+export const pugBuild = () =>
   gulp
     .src(`${config.src.pug}/*.pug`)
     .pipe(plumber())
@@ -28,16 +29,13 @@ export const pugBuild = (done) => {
         ),
       ),
     )
-    .pipe(pug())
+    .pipe(pug({ plugins: [pugIncludeGlob()] }))
     .pipe(gulp.dest(config.dest.html));
 
-  done();
-};
+export const pugWatch = () => {
+  global.isPugWatch = true;
 
-export const pugWatch = (done) => {
-  global.watch = true;
-
-  gulp
+  return gulp
     .watch(`${config.src.pug}/**/*.pug`, pugBuild)
     .on('all', (event, filePath, stats) => {
       global.emittyChangedFile = {
@@ -45,6 +43,4 @@ export const pugWatch = (done) => {
         stats,
       };
     });
-
-  done();
 };
