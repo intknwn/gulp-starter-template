@@ -28,3 +28,5 @@ export const watch = series(
   server,
   parallel(pugWatch, sassWatch, assetsWatch, imagesWatch, spritesWatch),
 );
+
+export const sass = series(sassBuild);
